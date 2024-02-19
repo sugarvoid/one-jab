@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dogppkto2udxk"]
+
+[ext_resource type="Texture2D" uid="uid://b8l4v71udi62w" path="res://game/asset/player.png" id="1_imadp"]
+
+[node name="Player" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_imadp")

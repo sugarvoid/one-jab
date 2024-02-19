@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk7hulw0lliyx"]
+
+[ext_resource type="Script" path="res://game/game.gd" id="1_kfiw7"]
+[ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/monogram.ttf" id="2_mx117"]
+[ext_resource type="Texture2D" uid="uid://c5mg85mfs4atw" path="res://game/asset/floor_spot.png" id="3_n7khr"]
+[ext_resource type="PackedScene" uid="uid://bghuykru61t2m" path="res://game/punching_bag.tscn" id="3_xismm"]
+[ext_resource type="PackedScene" uid="uid://dogppkto2udxk" path="res://game/player.tscn" id="5_n18sr"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_kfiw7")
+
+[node name="StartScreen" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="StartScreen"]
+offset_right = 133.0
+offset_bottom = 134.0
+color = Color(0.294118, 0.00392157, 0.360784, 1)
+
+[node name="Label4" type="Label" parent="StartScreen"]
+offset_left = 19.0
+offset_top = 12.0
+offset_right = 115.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("2_mx117")
+theme_override_font_sizes/font_size = 32
+text = "One Poke"
+
+[node name="Label8" type="Label" parent="StartScreen"]
+offset_left = 17.0
+offset_top = 102.0
+offset_right = 113.0
+offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("2_mx117")
+text = "[X]/[C] TO START"
+
+[node name="Label5" type="Label" parent="StartScreen"]
+offset_left = -32.0
+offset_top = 78.0
+offset_right = -8.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("2_mx117")
+text = "Test"
+
+[node name="PlayScreen" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PlayScreen"]
+offset_left = -6.0
+offset_top = 97.0
+offset_right = 133.0
+offset_bottom = 136.0
+color = Color(0.831373, 0.592157, 0.407843, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="PlayScreen"]
+offset_left = -6.0
+offset_top = -5.0
+offset_right = 133.0
+offset_bottom = 97.0
+color = Color(0.231373, 0.133333, 0.352941, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayScreen"]
+position = Vector2(14, 106)
+texture = ExtResource("3_n7khr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PlayScreen"]
+position = Vector2(34, 106)
+texture = ExtResource("3_n7khr")
+
+[node name="Sprite2D3" type="Sprite2D" parent="PlayScreen"]
+position = Vector2(54, 106)
+texture = ExtResource("3_n7khr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="PlayScreen"]
+position = Vector2(74, 106)
+texture = ExtResource("3_n7khr")
+
+[node name="Sprite2D5" type="Sprite2D" parent="PlayScreen"]
+position = Vector2(94, 106)
+texture = ExtResource("3_n7khr")
+
+[node name="Sprite2D6" type="Sprite2D" parent="PlayScreen"]
+position = Vector2(114, 106)
+texture = ExtResource("3_n7khr")
+
+[node name="PunchingBag" parent="PlayScreen" instance=ExtResource("3_xismm")]
+position = Vector2(14, 85)
+
+[node name="Label8" type="Label" parent="PlayScreen"]
+offset_left = 1.0
+offset_top = 114.0
+offset_right = 49.0
+offset_bottom = 127.0
+theme_override_fonts/font = ExtResource("2_mx117")
+text = "[X] Move"
+
+[node name="Label9" type="Label" parent="PlayScreen"]
+offset_left = 75.0
+offset_top = 112.0
+offset_right = 125.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("2_mx117")
+text = "[C] Jab"
+
+[node name="Player" parent="PlayScreen" instance=ExtResource("5_n18sr")]
+position = Vector2(32, 88)
+
+[node name="lblHits" type="Label" parent="PlayScreen"]
+offset_left = 101.0
+offset_top = 2.0
+offset_right = 125.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("2_mx117")
+
+[node name="GameOver" type="Node2D" parent="."]
+visible = false
+
+[node name="Label8" type="Label" parent="GameOver"]
+offset_left = 17.0
+offset_top = 102.0
+offset_right = 113.0
+offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("2_mx117")
+text = "[Z]/[X] TO START"
