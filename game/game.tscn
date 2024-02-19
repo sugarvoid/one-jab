@@ -10,6 +10,7 @@
 script = ExtResource("1_kfiw7")
 
 [node name="StartScreen" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="StartScreen"]
 offset_right = 133.0
@@ -42,7 +43,6 @@ theme_override_fonts/font = ExtResource("2_mx117")
 text = "Test"
 
 [node name="PlayScreen" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PlayScreen"]
 offset_left = -6.0
@@ -130,6 +130,17 @@ offset_left = 53.0
 offset_top = 2.0
 offset_right = 55.0
 offset_bottom = 10.0
+
+[node name="TimeLeft" type="Timer" parent="PlayScreen"]
+wait_time = 60.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PlayScreen"]
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 103.0
+offset_bottom = 21.0
+max_value = 60.0
+value = 34.0
 
 [node name="GameOver" type="Node2D" parent="."]
 visible = false

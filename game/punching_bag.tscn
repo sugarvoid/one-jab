@@ -41,7 +41,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 15.0
+"speed": 20.0
 }]
 
 [node name="PunchingBag" type="Node2D"]

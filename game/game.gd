@@ -1,10 +1,11 @@
 extends Node2D
 
 var game_state: int
-var hits: int
+var hits_left: int
 var bag_slot: int
 var player_slot: int
 var lives: int
+const HITS_NEEDED: int = 50; 
 
 const slots: Array[int] = [
 	14,
@@ -41,7 +42,7 @@ func update_player():
 	$PlayScreen/Player.position = Vector2(slots[player_slot], 88)
 
 func update_hud():
-	$PlayScreen/lblHits.text = str(hits)
+	$PlayScreen/lblHits.text = str(hits_left)
 
 func switch_screen(new_screen: int):
 	self.game_state = new_screen
@@ -52,13 +53,14 @@ func switch_screen(new_screen: int):
 			$StartScreen.show() 
 		1:
 			lives = 3
-			hits = 0
+			hits_left = HITS_NEEDED
 			bag_slot = 0
 			player_slot = 1
 			update_hud()
 			$PlayScreen.show()
 			$StartScreen.hide()
 			$GameOver.hide()
+			$PlayScreen/TimeLeft.start();
 		2:
 			$PlayScreen.hide()
 			$StartScreen.hide()
@@ -68,7 +70,7 @@ func switch_screen(new_screen: int):
 func player_punch():
 	if player_slot == (bag_slot - 1) or player_slot == bag_slot + 1:
 		$PlayScreen/PunchingBag/AnimatedSprite2D.play("hit")
-		hits += 1
+		hits_left -= 1
 		update_hud()
 		move_bag()
 	else:
