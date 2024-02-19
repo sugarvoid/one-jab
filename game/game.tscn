@@ -10,7 +10,6 @@
 script = ExtResource("1_kfiw7")
 
 [node name="StartScreen" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="StartScreen"]
 offset_right = 133.0
@@ -24,7 +23,7 @@ offset_right = 115.0
 offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("2_mx117")
 theme_override_font_sizes/font_size = 32
-text = "One Poke"
+text = "One Jab"
 
 [node name="Label8" type="Label" parent="StartScreen"]
 offset_left = 17.0
@@ -32,7 +31,7 @@ offset_top = 102.0
 offset_right = 113.0
 offset_bottom = 133.0
 theme_override_fonts/font = ExtResource("2_mx117")
-text = "[X]/[C] TO START"
+text = "[Z]/[X] TO START"
 
 [node name="Label5" type="Label" parent="StartScreen"]
 offset_left = -32.0
@@ -43,6 +42,7 @@ theme_override_fonts/font = ExtResource("2_mx117")
 text = "Test"
 
 [node name="PlayScreen" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PlayScreen"]
 offset_left = -6.0
@@ -91,7 +91,7 @@ offset_top = 114.0
 offset_right = 49.0
 offset_bottom = 127.0
 theme_override_fonts/font = ExtResource("2_mx117")
-text = "[X] Move"
+text = "[Z] Move"
 
 [node name="Label9" type="Label" parent="PlayScreen"]
 offset_left = 75.0
@@ -99,7 +99,7 @@ offset_top = 112.0
 offset_right = 125.0
 offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("2_mx117")
-text = "[C] Jab"
+text = "[X] Jab"
 
 [node name="Player" parent="PlayScreen" instance=ExtResource("5_n18sr")]
 position = Vector2(32, 88)
@@ -111,13 +111,38 @@ offset_right = 125.0
 offset_bottom = 19.0
 theme_override_fonts/font = ExtResource("2_mx117")
 
+[node name="Lives" type="Node2D" parent="PlayScreen"]
+
+[node name="ColorRect" type="ColorRect" parent="PlayScreen/Lives"]
+offset_left = 45.0
+offset_top = 2.0
+offset_right = 47.0
+offset_bottom = 10.0
+
+[node name="ColorRect2" type="ColorRect" parent="PlayScreen/Lives"]
+offset_left = 49.0
+offset_top = 2.0
+offset_right = 51.0
+offset_bottom = 10.0
+
+[node name="ColorRect3" type="ColorRect" parent="PlayScreen/Lives"]
+offset_left = 53.0
+offset_top = 2.0
+offset_right = 55.0
+offset_bottom = 10.0
+
 [node name="GameOver" type="Node2D" parent="."]
 visible = false
 
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+offset_right = 131.0
+offset_bottom = 137.0
+color = Color(0.152941, 0.152941, 0.152941, 1)
+
 [node name="Label8" type="Label" parent="GameOver"]
 offset_left = 17.0
-offset_top = 102.0
+offset_top = 92.0
 offset_right = 113.0
-offset_bottom = 133.0
+offset_bottom = 109.0
 theme_override_fonts/font = ExtResource("2_mx117")
-text = "[Z]/[X] TO START"
+text = "[X]/[C] TO RETRY"

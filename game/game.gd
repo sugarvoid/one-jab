@@ -4,6 +4,7 @@ var game_state: int
 var hits: int
 var bag_slot: int
 var player_slot: int
+var lives: int
 
 const slots: Array[int] = [
 	14,
@@ -50,13 +51,18 @@ func switch_screen(new_screen: int):
 			$GameOver.hide()
 			$StartScreen.show() 
 		1:
+			lives = 3
 			hits = 0
 			bag_slot = 0
 			player_slot = 1
+			update_hud()
 			$PlayScreen.show()
 			$StartScreen.hide()
+			$GameOver.hide()
 		2:
 			$PlayScreen.hide()
+			$StartScreen.hide()
+			$GameOver.show()
 
 
 func player_punch():
@@ -67,6 +73,7 @@ func player_punch():
 		move_bag()
 	else:
 		print("Miss punch. Game Over")
+		gameover()
 
 
 func move_bag():
@@ -86,18 +93,20 @@ func _input(event):
 			if event.is_action_pressed("move") or event.is_action_pressed("poke"):
 				self.switch_screen(1)
 		1:
-			if event.is_action_pressed("ui_accept"):
-				$PlayScreen/PunchingBag/AnimatedSprite2D.play("hit")
 			if event.is_action_pressed("poke"):
 				player_punch()
 			if event.is_action_pressed("move"):
 				move_player()
 		2: 
-			pass
+			if event.is_action_pressed("move") or event.is_action_pressed("poke"):
+				self.switch_screen(1)
 	
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
 
+
+func gameover() -> void:
+	self.switch_screen(2)
 
 func  move_player():
 	if $PlayScreen/Player.scale.x == 1 and player_slot != (bag_slot + 1):
@@ -106,5 +115,6 @@ func  move_player():
 		player_slot += 1
 	else:
 		print("Miss movement. Game Over")
+		gameover()
 	
 	
