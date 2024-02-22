@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk7hulw0lliyx"]
+[gd_scene load_steps=7 format=3 uid="uid://dk7hulw0lliyx"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_kfiw7"]
 [ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/monogram.ttf" id="2_mx117"]
 [ext_resource type="Texture2D" uid="uid://c5mg85mfs4atw" path="res://game/asset/floor_spot.png" id="3_n7khr"]
 [ext_resource type="PackedScene" uid="uid://bghuykru61t2m" path="res://game/punching_bag.tscn" id="3_xismm"]
 [ext_resource type="PackedScene" uid="uid://dogppkto2udxk" path="res://game/player.tscn" id="5_n18sr"]
+[ext_resource type="Texture2D" uid="uid://c8rdk0hgwac5l" path="res://icon.png" id="6_8t2xj"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_kfiw7")
@@ -141,6 +142,11 @@ offset_right = 103.0
 offset_bottom = 21.0
 max_value = 60.0
 value = 34.0
+
+[node name="marker" type="Sprite2D" parent="PlayScreen"]
+position = Vector2(101.5, 72.5)
+scale = Vector2(0.046875, 0.234375)
+texture = ExtResource("6_8t2xj")
 
 [node name="GameOver" type="Node2D" parent="."]
 visible = false

@@ -7,6 +7,8 @@ var player_slot: int
 var lives: int
 const HITS_NEEDED: int = 50; 
 
+var bags_next_pos: int
+
 const slots: Array[int] = [
 	14,
 	34,
@@ -27,6 +29,7 @@ func _process(delta):
 
 
 func update_bag():
+	$PlayScreen/marker.position = Vector2(slots[bags_next_pos], 85)
 	if bag_slot < player_slot:
 		$PlayScreen/PunchingBag.scale.x = 1
 	elif bag_slot > player_slot:
@@ -52,6 +55,7 @@ func switch_screen(new_screen: int):
 			$GameOver.hide()
 			$StartScreen.show() 
 		1:
+			bags_next_pos = 3
 			lives = 3
 			hits_left = HITS_NEEDED
 			bag_slot = 0
@@ -69,6 +73,7 @@ func switch_screen(new_screen: int):
 
 func player_punch():
 	if player_slot == (bag_slot - 1) or player_slot == bag_slot + 1:
+		$PlayScreen/Player/Sprite2D.play("punch")
 		$PlayScreen/PunchingBag/AnimatedSprite2D.play("hit")
 		hits_left -= 1
 		update_hud()
@@ -79,10 +84,12 @@ func player_punch():
 
 
 func move_bag():
+	bag_slot = bags_next_pos
 	var new_pos = randi_range(0,5)
-	while new_pos == player_slot:
+	while new_pos == bags_next_pos or new_pos == clamp(bags_next_pos - 1, 0, 5) or new_pos == clamp(bags_next_pos + 1, 0, 5):
 		new_pos = randi_range(0,5)
-	bag_slot = new_pos
+	
+	bags_next_pos = new_pos
 
 
 func get_new_pos(slot: int) -> Vector2:
