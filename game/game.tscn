@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dk7hulw0lliyx"]
+[gd_scene load_steps=32 format=3 uid="uid://dk7hulw0lliyx"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_kfiw7"]
 [ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/asset/monogram.ttf" id="2_mx117"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b8l4v71udi62w" path="res://game/asset/player.png" id="5_kqd0n"]
 [ext_resource type="Texture2D" uid="uid://bxy2cm51adn7i" path="res://game/asset/pear36-1x.png" id="6_6jiur"]
 [ext_resource type="Texture2D" uid="uid://od0xywcbfmfm" path="res://game/asset/arrow_sheet.png" id="6_wfjvq"]
+[ext_resource type="Script" path="res://game/stopwatch.gd" id="8_maklf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8awx5"]
 atlas = ExtResource("5_b0jgq")
@@ -215,7 +216,7 @@ offset_left = -2.0
 offset_top = 99.0
 offset_right = 156.0
 offset_bottom = 152.0
-color = Color(1, 0.709804, 0.439216, 1)
+color = Color(0.337255, 0.239216, 0.184314, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="PlayScreen"]
 offset_left = -6.0
@@ -265,6 +266,14 @@ offset_bottom = 127.0
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "[Z] Move"
 
+[node name="LblTime" type="Label" parent="PlayScreen"]
+offset_left = 49.0
+offset_top = 6.0
+offset_right = 97.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("2_mx117")
+text = "[Z] Move"
+
 [node name="Label9" type="Label" parent="PlayScreen"]
 offset_left = 75.0
 offset_top = 112.0
@@ -279,40 +288,21 @@ sprite_frames = SubResource("SpriteFrames_88ot1")
 animation = &"punch"
 
 [node name="lblHits" type="Label" parent="PlayScreen"]
-offset_left = 101.0
-offset_top = 2.0
-offset_right = 125.0
-offset_bottom = 19.0
+offset_left = 132.0
+offset_top = 1.0
+offset_right = 156.0
+offset_bottom = 18.0
 theme_override_fonts/font = ExtResource("2_mx117")
-
-[node name="Lives" type="Node2D" parent="PlayScreen"]
-
-[node name="ColorRect" type="ColorRect" parent="PlayScreen/Lives"]
-offset_left = 45.0
-offset_top = 2.0
-offset_right = 47.0
-offset_bottom = 10.0
-
-[node name="ColorRect2" type="ColorRect" parent="PlayScreen/Lives"]
-offset_left = 49.0
-offset_top = 2.0
-offset_right = 51.0
-offset_bottom = 10.0
-
-[node name="ColorRect3" type="ColorRect" parent="PlayScreen/Lives"]
-offset_left = 53.0
-offset_top = 2.0
-offset_right = 55.0
-offset_bottom = 10.0
+text = "50"
 
 [node name="TimeLeft" type="Timer" parent="PlayScreen"]
 wait_time = 60.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="PlayScreen"]
-offset_left = 38.0
-offset_top = 23.0
-offset_right = 118.0
-offset_bottom = 28.0
+offset_left = -90.0
+offset_top = 15.0
+offset_right = -10.0
+offset_bottom = 20.0
 value = 34.0
 nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_cpadh")
@@ -323,6 +313,9 @@ position = Vector2(118, 59)
 scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_usssy")
 frame_progress = 0.0975982
+
+[node name="Stopwatch" type="Node" parent="PlayScreen"]
+script = ExtResource("8_maklf")
 
 [node name="GameOver" type="Node2D" parent="."]
 visible = false

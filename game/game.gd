@@ -4,9 +4,7 @@ extends Node2D
 @onready var punching_bag: AnimatedSprite2D = get_node("PlayScreen/PunchingBag")
 @onready var marker: AnimatedSprite2D = get_node("PlayScreen/marker")
 
-
 const HITS_NEEDED: int = 50; 
-
 
 var game_state: int
 var hits_left: int
@@ -30,16 +28,17 @@ const slots: Array[int] = [
 func _ready():
 	switch_screen(0)
 	update_hud()
-	$PlayScreen/marker.play("default")
+	marker.play("default")
 
 
 func _process(delta):
+	$PlayScreen/LblTime.text = $PlayScreen/Stopwatch.get_time()
 	update_player()
 	update_bag()
 
 
 func update_bag():
-	$PlayScreen/marker.position = Vector2(slots[bags_next_pos], 85)
+	marker.position = Vector2(slots[bags_next_pos], 85)
 	if bag_slot < player_slot:
 		$PlayScreen/PunchingBag.scale.x = 1
 	elif bag_slot > player_slot:
@@ -56,6 +55,7 @@ func update_player():
 
 func update_hud():
 	$PlayScreen/lblHits.text = str(hits_left)
+	
 
 func switch_screen(new_screen: int):
 	self.game_state = new_screen
@@ -65,6 +65,7 @@ func switch_screen(new_screen: int):
 			$GameOver.hide()
 			$StartScreen.show() 
 		1:
+			$PlayScreen/Stopwatch.start()
 			bags_next_pos = 3
 			lives = 3
 			hits_left = HITS_NEEDED
@@ -125,6 +126,7 @@ func _input(event):
 
 
 func gameover() -> void:
+	$PlayScreen/Stopwatch.stop()
 	self.switch_screen(2)
 
 func  move_player():
