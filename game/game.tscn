@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://dk7hulw0lliyx"]
+[gd_scene load_steps=31 format=3 uid="uid://dk7hulw0lliyx"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_kfiw7"]
 [ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/asset/monogram.ttf" id="2_mx117"]
 [ext_resource type="Texture2D" uid="uid://c5mg85mfs4atw" path="res://game/asset/floor_spot.png" id="3_n7khr"]
 [ext_resource type="Texture2D" uid="uid://ctcqwbxebrbuk" path="res://game/asset/punchbag.png" id="5_b0jgq"]
 [ext_resource type="Texture2D" uid="uid://b8l4v71udi62w" path="res://game/asset/player.png" id="5_kqd0n"]
+[ext_resource type="Texture2D" uid="uid://bxy2cm51adn7i" path="res://game/asset/pear36-1x.png" id="6_6jiur"]
 [ext_resource type="Texture2D" uid="uid://od0xywcbfmfm" path="res://game/asset/arrow_sheet.png" id="6_wfjvq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8awx5"]
@@ -99,6 +100,14 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpadh"]
+atlas = ExtResource("6_6jiur")
+region = Rect2(16, 0, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbdkr"]
+atlas = ExtResource("6_6jiur")
+region = Rect2(7, 0, 1, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldff7"]
 atlas = ExtResource("6_wfjvq")
 region = Rect2(0, 0, 8, 16)
@@ -172,7 +181,7 @@ visible = false
 [node name="ColorRect" type="ColorRect" parent="StartScreen"]
 offset_right = 155.0
 offset_bottom = 156.0
-color = Color(0.294118, 0.00392157, 0.360784, 1)
+color = Color(0.152941, 0.152941, 0.211765, 1)
 
 [node name="Label4" type="Label" parent="StartScreen"]
 offset_left = 31.0
@@ -206,14 +215,14 @@ offset_left = -2.0
 offset_top = 99.0
 offset_right = 156.0
 offset_bottom = 152.0
-color = Color(0.831373, 0.592157, 0.407843, 1)
+color = Color(1, 0.709804, 0.439216, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="PlayScreen"]
 offset_left = -6.0
 offset_top = -5.0
 offset_right = 166.0
 offset_bottom = 99.0
-color = Color(0.231373, 0.133333, 0.352941, 1)
+color = Color(0.152941, 0.152941, 0.211765, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(14, 106)
@@ -244,6 +253,7 @@ position = Vector2(134, 106)
 texture = ExtResource("3_n7khr")
 
 [node name="PunchingBag" type="AnimatedSprite2D" parent="PlayScreen"]
+position = Vector2(19, 29)
 sprite_frames = SubResource("SpriteFrames_pxre2")
 animation = &"hit"
 
@@ -299,15 +309,18 @@ offset_bottom = 10.0
 wait_time = 60.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="PlayScreen"]
-offset_left = 23.0
-offset_top = 16.0
-offset_right = 103.0
-offset_bottom = 21.0
-max_value = 60.0
+offset_left = 38.0
+offset_top = 23.0
+offset_right = 118.0
+offset_bottom = 28.0
 value = 34.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_cpadh")
+texture_progress = SubResource("AtlasTexture_bbdkr")
 
 [node name="marker" type="AnimatedSprite2D" parent="PlayScreen"]
-position = Vector2(97.5, 82.8125)
+position = Vector2(118, 59)
+scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_usssy")
 frame_progress = 0.0975982
 
@@ -317,12 +330,13 @@ visible = false
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
 offset_right = 156.0
 offset_bottom = 153.0
-color = Color(0.152941, 0.152941, 0.152941, 1)
+color = Color(0.152941, 0.152941, 0.211765, 1)
 
 [node name="Label8" type="Label" parent="GameOver"]
 offset_left = 28.0
 offset_top = 69.0
 offset_right = 124.0
 offset_bottom = 86.0
+theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "[X]/[C] TO RETRY"

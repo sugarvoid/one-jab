@@ -1,11 +1,19 @@
 extends Node2D
 
+@onready var player: AnimatedSprite2D = get_node("PlayScreen/Player")
+@onready var punching_bag: AnimatedSprite2D = get_node("PlayScreen/PunchingBag")
+@onready var marker: AnimatedSprite2D = get_node("PlayScreen/marker")
+
+
+const HITS_NEEDED: int = 50; 
+
+
 var game_state: int
 var hits_left: int
 var bag_slot: int
 var player_slot: int
 var lives: int
-const HITS_NEEDED: int = 50; 
+
 
 var bags_next_pos: int
 
