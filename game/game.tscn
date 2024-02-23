@@ -1,11 +1,75 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk7hulw0lliyx"]
+[gd_scene load_steps=16 format=3 uid="uid://dk7hulw0lliyx"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_kfiw7"]
 [ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/monogram.ttf" id="2_mx117"]
 [ext_resource type="Texture2D" uid="uid://c5mg85mfs4atw" path="res://game/asset/floor_spot.png" id="3_n7khr"]
 [ext_resource type="PackedScene" uid="uid://bghuykru61t2m" path="res://game/punching_bag.tscn" id="3_xismm"]
 [ext_resource type="PackedScene" uid="uid://dogppkto2udxk" path="res://game/player.tscn" id="5_n18sr"]
-[ext_resource type="Texture2D" uid="uid://c8rdk0hgwac5l" path="res://icon.png" id="6_8t2xj"]
+[ext_resource type="Texture2D" uid="uid://od0xywcbfmfm" path="res://game/asset/arrow_sheet.png" id="6_wfjvq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldff7"]
+atlas = ExtResource("6_wfjvq")
+region = Rect2(0, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp8t5"]
+atlas = ExtResource("6_wfjvq")
+region = Rect2(8, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l88x1"]
+atlas = ExtResource("6_wfjvq")
+region = Rect2(16, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3578"]
+atlas = ExtResource("6_wfjvq")
+region = Rect2(24, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0ij6"]
+atlas = ExtResource("6_wfjvq")
+region = Rect2(32, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evkx2"]
+atlas = ExtResource("6_wfjvq")
+region = Rect2(40, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aih5m"]
+atlas = ExtResource("6_wfjvq")
+region = Rect2(48, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnvpq"]
+atlas = ExtResource("6_wfjvq")
+region = Rect2(56, 0, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usssy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldff7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp8t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l88x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3578")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0ij6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evkx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aih5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnvpq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_kfiw7")
@@ -14,24 +78,24 @@ script = ExtResource("1_kfiw7")
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="StartScreen"]
-offset_right = 133.0
-offset_bottom = 134.0
+offset_right = 155.0
+offset_bottom = 156.0
 color = Color(0.294118, 0.00392157, 0.360784, 1)
 
 [node name="Label4" type="Label" parent="StartScreen"]
-offset_left = 19.0
-offset_top = 12.0
-offset_right = 115.0
-offset_bottom = 43.0
+offset_left = 31.0
+offset_top = 35.0
+offset_right = 127.0
+offset_bottom = 66.0
 theme_override_fonts/font = ExtResource("2_mx117")
 theme_override_font_sizes/font_size = 32
 text = "One Jab"
 
 [node name="Label8" type="Label" parent="StartScreen"]
-offset_left = 17.0
-offset_top = 102.0
-offset_right = 113.0
-offset_bottom = 133.0
+offset_left = 34.0
+offset_top = 108.0
+offset_right = 130.0
+offset_bottom = 139.0
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "[Z]/[X] TO START"
 
@@ -44,19 +108,20 @@ theme_override_fonts/font = ExtResource("2_mx117")
 text = "Test"
 
 [node name="PlayScreen" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PlayScreen"]
-offset_left = -6.0
-offset_top = 97.0
-offset_right = 133.0
-offset_bottom = 136.0
+offset_left = -2.0
+offset_top = 99.0
+offset_right = 156.0
+offset_bottom = 152.0
 color = Color(0.831373, 0.592157, 0.407843, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="PlayScreen"]
 offset_left = -6.0
 offset_top = -5.0
-offset_right = 133.0
-offset_bottom = 97.0
+offset_right = 166.0
+offset_bottom = 99.0
 color = Color(0.231373, 0.133333, 0.352941, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayScreen"]
@@ -81,6 +146,10 @@ texture = ExtResource("3_n7khr")
 
 [node name="Sprite2D6" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(114, 106)
+texture = ExtResource("3_n7khr")
+
+[node name="Sprite2D7" type="Sprite2D" parent="PlayScreen"]
+position = Vector2(134, 106)
 texture = ExtResource("3_n7khr")
 
 [node name="PunchingBag" parent="PlayScreen" instance=ExtResource("3_xismm")]
@@ -143,23 +212,22 @@ offset_bottom = 21.0
 max_value = 60.0
 value = 34.0
 
-[node name="marker" type="Sprite2D" parent="PlayScreen"]
-position = Vector2(101.5, 72.5)
-scale = Vector2(0.046875, 0.234375)
-texture = ExtResource("6_8t2xj")
+[node name="marker" type="AnimatedSprite2D" parent="PlayScreen"]
+position = Vector2(97.5, 82.8125)
+sprite_frames = SubResource("SpriteFrames_usssy")
+frame_progress = 0.526939
 
 [node name="GameOver" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
-offset_right = 131.0
-offset_bottom = 137.0
+offset_right = 156.0
+offset_bottom = 153.0
 color = Color(0.152941, 0.152941, 0.152941, 1)
 
 [node name="Label8" type="Label" parent="GameOver"]
-offset_left = 17.0
-offset_top = 92.0
-offset_right = 113.0
-offset_bottom = 109.0
+offset_left = 28.0
+offset_top = 69.0
+offset_right = 124.0
+offset_bottom = 86.0
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "[X]/[C] TO RETRY"

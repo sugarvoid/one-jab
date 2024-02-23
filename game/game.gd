@@ -15,12 +15,14 @@ const slots: Array[int] = [
 	54,
 	74,
 	94,
-	114
+	114,
+	134
 ]
 
 func _ready():
 	switch_screen(0)
 	update_hud()
+	$PlayScreen/marker.play("default")
 
 
 func _process(delta):
@@ -85,9 +87,9 @@ func player_punch():
 
 func move_bag():
 	bag_slot = bags_next_pos
-	var new_pos = randi_range(0,5)
-	while new_pos == bags_next_pos or new_pos == clamp(bags_next_pos - 1, 0, 5) or new_pos == clamp(bags_next_pos + 1, 0, 5):
-		new_pos = randi_range(0,5)
+	var new_pos = randi_range(0,6)
+	while new_pos == bags_next_pos or new_pos == clamp(bags_next_pos - 1, 0, 6) or new_pos == clamp(bags_next_pos + 1, 0, 5):
+		new_pos = randi_range(0,6)
 	
 	bags_next_pos = new_pos
 
