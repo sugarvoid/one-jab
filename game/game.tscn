@@ -1,11 +1,103 @@
-[gd_scene load_steps=16 format=3 uid="uid://dk7hulw0lliyx"]
+[gd_scene load_steps=28 format=3 uid="uid://dk7hulw0lliyx"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_kfiw7"]
-[ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/monogram.ttf" id="2_mx117"]
+[ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/asset/monogram.ttf" id="2_mx117"]
 [ext_resource type="Texture2D" uid="uid://c5mg85mfs4atw" path="res://game/asset/floor_spot.png" id="3_n7khr"]
-[ext_resource type="PackedScene" uid="uid://bghuykru61t2m" path="res://game/punching_bag.tscn" id="3_xismm"]
-[ext_resource type="PackedScene" uid="uid://dogppkto2udxk" path="res://game/player.tscn" id="5_n18sr"]
+[ext_resource type="Texture2D" uid="uid://ctcqwbxebrbuk" path="res://game/asset/punchbag.png" id="5_b0jgq"]
+[ext_resource type="Texture2D" uid="uid://b8l4v71udi62w" path="res://game/asset/player.png" id="5_kqd0n"]
 [ext_resource type="Texture2D" uid="uid://od0xywcbfmfm" path="res://game/asset/arrow_sheet.png" id="6_wfjvq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8awx5"]
+atlas = ExtResource("5_b0jgq")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y43qc"]
+atlas = ExtResource("5_b0jgq")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1px8b"]
+atlas = ExtResource("5_b0jgq")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohmmd"]
+atlas = ExtResource("5_b0jgq")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxre2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8awx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y43qc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1px8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohmmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1px8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8awx5")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 20.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb3wh"]
+atlas = ExtResource("5_kqd0n")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7imrl"]
+atlas = ExtResource("5_kqd0n")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kfny"]
+atlas = ExtResource("5_kqd0n")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bbf8"]
+atlas = ExtResource("5_kqd0n")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miped"]
+atlas = ExtResource("5_kqd0n")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irxgl"]
+atlas = ExtResource("5_kqd0n")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_88ot1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb3wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7imrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kfny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bbf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miped")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irxgl")
+}],
+"loop": false,
+"name": &"punch",
+"speed": 20.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldff7"]
 atlas = ExtResource("6_wfjvq")
@@ -108,7 +200,6 @@ theme_override_fonts/font = ExtResource("2_mx117")
 text = "Test"
 
 [node name="PlayScreen" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PlayScreen"]
 offset_left = -2.0
@@ -152,8 +243,9 @@ texture = ExtResource("3_n7khr")
 position = Vector2(134, 106)
 texture = ExtResource("3_n7khr")
 
-[node name="PunchingBag" parent="PlayScreen" instance=ExtResource("3_xismm")]
-position = Vector2(14, 85)
+[node name="PunchingBag" type="AnimatedSprite2D" parent="PlayScreen"]
+sprite_frames = SubResource("SpriteFrames_pxre2")
+animation = &"hit"
 
 [node name="Label8" type="Label" parent="PlayScreen"]
 offset_left = 1.0
@@ -171,8 +263,10 @@ offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "[X] Jab"
 
-[node name="Player" parent="PlayScreen" instance=ExtResource("5_n18sr")]
+[node name="Player" type="AnimatedSprite2D" parent="PlayScreen"]
 position = Vector2(32, 88)
+sprite_frames = SubResource("SpriteFrames_88ot1")
+animation = &"punch"
 
 [node name="lblHits" type="Label" parent="PlayScreen"]
 offset_left = 101.0
@@ -215,9 +309,10 @@ value = 34.0
 [node name="marker" type="AnimatedSprite2D" parent="PlayScreen"]
 position = Vector2(97.5, 82.8125)
 sprite_frames = SubResource("SpriteFrames_usssy")
-frame_progress = 0.526939
+frame_progress = 0.0975982
 
 [node name="GameOver" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
 offset_right = 156.0

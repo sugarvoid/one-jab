@@ -75,8 +75,8 @@ func switch_screen(new_screen: int):
 
 func player_punch():
 	if player_slot == (bag_slot - 1) or player_slot == bag_slot + 1:
-		$PlayScreen/Player/Sprite2D.play("punch")
-		$PlayScreen/PunchingBag/AnimatedSprite2D.play("hit")
+		$PlayScreen/Player.play("punch")
+		$PlayScreen/PunchingBag.play("hit")
 		hits_left -= 1
 		update_hud()
 		move_bag()
