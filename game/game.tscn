@@ -202,7 +202,6 @@ text = "[Z]/[X] TO START"
 horizontal_alignment = 1
 
 [node name="PlayScreen" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PlayScreen"]
 offset_left = -2.0
@@ -252,10 +251,10 @@ sprite_frames = SubResource("SpriteFrames_pxre2")
 animation = &"hit"
 
 [node name="Label8" type="Label" parent="PlayScreen"]
-offset_left = 1.0
-offset_top = 114.0
-offset_right = 49.0
-offset_bottom = 127.0
+offset_left = 4.0
+offset_top = 125.0
+offset_right = 52.0
+offset_bottom = 138.0
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "[Z] Move"
 
@@ -268,10 +267,10 @@ theme_override_fonts/font = ExtResource("2_mx117")
 text = "[Z] Move"
 
 [node name="Label9" type="Label" parent="PlayScreen"]
-offset_left = 75.0
-offset_top = 112.0
-offset_right = 125.0
-offset_bottom = 129.0
+offset_left = 90.0
+offset_top = 125.0
+offset_right = 140.0
+offset_bottom = 142.0
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "[X] Jab"
 
@@ -308,6 +307,7 @@ frame_progress = 0.0975982
 script = ExtResource("8_maklf")
 
 [node name="GameOver" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
 offset_right = 156.0

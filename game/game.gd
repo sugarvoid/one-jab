@@ -68,7 +68,7 @@ func switch_screen(new_screen: int):
 			$StartScreen.show() 
 		1:
 			$PlayScreen/Stopwatch.start()
-			bags_next_pos = 3
+			bags_next_pos = randi_range(2,6)
 			lives = 3
 			hits_left = HITS_NEEDED
 			bag_slot = 0
@@ -94,6 +94,10 @@ func player_punch():
 		print("Miss punch. Game Over")
 		set_gameoever_text("You should have moved...")
 		gameover()
+	if hits_left == 0:
+		set_gameoever_text(str("you win\n",$PlayScreen/Stopwatch.get_time()))
+		$PlayScreen/Stopwatch.stop()
+		gameover()
 
 
 func move_bag():
@@ -117,12 +121,12 @@ func _input(event):
 				player_punch()
 			if event.is_action_pressed("move"):
 				move_player()
+			if event.is_action_pressed("ui_cancel"):
+				switch_screen(0)
 		2: 
 			if event.is_action_pressed("move") or event.is_action_pressed("poke"):
 				self.switch_screen(1)
-	
-	if event.is_action_pressed("ui_cancel"):
-		get_tree().quit()
+
 
 
 func gameover() -> void:
