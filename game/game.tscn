@@ -177,7 +177,6 @@ animations = [{
 script = ExtResource("1_kfiw7")
 
 [node name="StartScreen" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="StartScreen"]
 offset_right = 155.0
@@ -185,31 +184,24 @@ offset_bottom = 156.0
 color = Color(0.152941, 0.152941, 0.211765, 1)
 
 [node name="Label4" type="Label" parent="StartScreen"]
-offset_left = 31.0
 offset_top = 35.0
-offset_right = 127.0
-offset_bottom = 66.0
+offset_right = 150.0
+offset_bottom = 68.0
 theme_override_fonts/font = ExtResource("2_mx117")
 theme_override_font_sizes/font_size = 32
-text = "One Jab"
+text = "ONE JAB"
+horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="StartScreen"]
-offset_left = 34.0
 offset_top = 108.0
-offset_right = 130.0
-offset_bottom = 139.0
+offset_right = 150.0
+offset_bottom = 125.0
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "[Z]/[X] TO START"
-
-[node name="Label5" type="Label" parent="StartScreen"]
-offset_left = -32.0
-offset_top = 78.0
-offset_right = -8.0
-offset_bottom = 109.0
-theme_override_fonts/font = ExtResource("2_mx117")
-text = "Test"
+horizontal_alignment = 1
 
 [node name="PlayScreen" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PlayScreen"]
 offset_left = -2.0
@@ -294,9 +286,6 @@ offset_right = 156.0
 offset_bottom = 18.0
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "50"
-
-[node name="TimeLeft" type="Timer" parent="PlayScreen"]
-wait_time = 60.0
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="PlayScreen"]
 offset_left = -90.0
