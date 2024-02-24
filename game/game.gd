@@ -92,6 +92,7 @@ func player_punch():
 		move_bag()
 	else:
 		print("Miss punch. Game Over")
+		set_gameoever_text("You should have moved...")
 		gameover()
 
 
@@ -128,6 +129,9 @@ func gameover() -> void:
 	$PlayScreen/Stopwatch.stop()
 	self.switch_screen(2)
 
+func set_gameoever_text(text: String):
+	$GameOver/LblMessage.text = text
+
 func  move_player():
 	if $PlayScreen/Player.scale.x == 1 and player_slot != (bag_slot + 1):
 		player_slot -= 1
@@ -135,6 +139,7 @@ func  move_player():
 		player_slot += 1
 	else:
 		print("Miss movement. Game Over")
+		set_gameoever_text("You should have punched...")
 		gameover()
 	
 	

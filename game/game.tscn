@@ -177,6 +177,7 @@ animations = [{
 script = ExtResource("1_kfiw7")
 
 [node name="StartScreen" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="StartScreen"]
 offset_right = 155.0
@@ -307,7 +308,6 @@ frame_progress = 0.0975982
 script = ExtResource("8_maklf")
 
 [node name="GameOver" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
 offset_right = 156.0
@@ -316,9 +316,17 @@ color = Color(0.152941, 0.152941, 0.211765, 1)
 
 [node name="Label8" type="Label" parent="GameOver"]
 offset_left = 28.0
-offset_top = 69.0
+offset_top = 103.0
 offset_right = 124.0
-offset_bottom = 86.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
+theme_override_fonts/font = ExtResource("2_mx117")
+text = "[X]/[C] TO RETRY"
+
+[node name="LblMessage" type="Label" parent="GameOver"]
+offset_top = 23.0
+offset_right = 156.0
+offset_bottom = 100.0
 theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
 theme_override_fonts/font = ExtResource("2_mx117")
 text = "[X]/[C] TO RETRY"
