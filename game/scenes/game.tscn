@@ -1,28 +1,28 @@
 [gd_scene load_steps=32 format=3 uid="uid://dk7hulw0lliyx"]
 
-[ext_resource type="Script" path="res://game/game.gd" id="1_kfiw7"]
-[ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/asset/monogram.ttf" id="2_mx117"]
-[ext_resource type="Texture2D" uid="uid://c5mg85mfs4atw" path="res://game/asset/floor_spot.png" id="3_n7khr"]
-[ext_resource type="Texture2D" uid="uid://ctcqwbxebrbuk" path="res://game/asset/punchbag.png" id="5_b0jgq"]
-[ext_resource type="Texture2D" uid="uid://b8l4v71udi62w" path="res://game/asset/player.png" id="5_kqd0n"]
-[ext_resource type="Texture2D" uid="uid://bxy2cm51adn7i" path="res://game/asset/pear36-1x.png" id="6_6jiur"]
-[ext_resource type="Texture2D" uid="uid://od0xywcbfmfm" path="res://game/asset/arrow_sheet.png" id="6_wfjvq"]
-[ext_resource type="Script" path="res://game/stopwatch.gd" id="8_maklf"]
+[ext_resource type="Script" path="res://game/scripts/game.gd" id="1_4mk70"]
+[ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/asset/monogram.ttf" id="2_phegq"]
+[ext_resource type="Texture2D" uid="uid://c5mg85mfs4atw" path="res://game/asset/floor_spot.png" id="3_jdgb7"]
+[ext_resource type="Texture2D" uid="uid://ctcqwbxebrbuk" path="res://game/asset/punchbag.png" id="4_b7bkk"]
+[ext_resource type="Texture2D" uid="uid://b8l4v71udi62w" path="res://game/asset/player.png" id="5_h73td"]
+[ext_resource type="Texture2D" uid="uid://bxy2cm51adn7i" path="res://game/asset/pear36-1x.png" id="6_p3h3s"]
+[ext_resource type="Texture2D" uid="uid://od0xywcbfmfm" path="res://game/asset/arrow_sheet.png" id="7_n4lm5"]
+[ext_resource type="Script" path="res://game/scripts/stopwatch.gd" id="8_wx1cf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8awx5"]
-atlas = ExtResource("5_b0jgq")
+atlas = ExtResource("4_b7bkk")
 region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y43qc"]
-atlas = ExtResource("5_b0jgq")
+atlas = ExtResource("4_b7bkk")
 region = Rect2(16, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1px8b"]
-atlas = ExtResource("5_b0jgq")
+atlas = ExtResource("4_b7bkk")
 region = Rect2(32, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohmmd"]
-atlas = ExtResource("5_b0jgq")
+atlas = ExtResource("4_b7bkk")
 region = Rect2(48, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pxre2"]
@@ -52,27 +52,27 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mb3wh"]
-atlas = ExtResource("5_kqd0n")
+atlas = ExtResource("5_h73td")
 region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7imrl"]
-atlas = ExtResource("5_kqd0n")
+atlas = ExtResource("5_h73td")
 region = Rect2(16, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2kfny"]
-atlas = ExtResource("5_kqd0n")
+atlas = ExtResource("5_h73td")
 region = Rect2(32, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7bbf8"]
-atlas = ExtResource("5_kqd0n")
+atlas = ExtResource("5_h73td")
 region = Rect2(48, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_miped"]
-atlas = ExtResource("5_kqd0n")
+atlas = ExtResource("5_h73td")
 region = Rect2(64, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irxgl"]
-atlas = ExtResource("5_kqd0n")
+atlas = ExtResource("5_h73td")
 region = Rect2(80, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_88ot1"]
@@ -102,43 +102,43 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpadh"]
-atlas = ExtResource("6_6jiur")
+atlas = ExtResource("6_p3h3s")
 region = Rect2(16, 0, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbdkr"]
-atlas = ExtResource("6_6jiur")
+atlas = ExtResource("6_p3h3s")
 region = Rect2(7, 0, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldff7"]
-atlas = ExtResource("6_wfjvq")
+atlas = ExtResource("7_n4lm5")
 region = Rect2(0, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lp8t5"]
-atlas = ExtResource("6_wfjvq")
+atlas = ExtResource("7_n4lm5")
 region = Rect2(8, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l88x1"]
-atlas = ExtResource("6_wfjvq")
+atlas = ExtResource("7_n4lm5")
 region = Rect2(16, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3578"]
-atlas = ExtResource("6_wfjvq")
+atlas = ExtResource("7_n4lm5")
 region = Rect2(24, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q0ij6"]
-atlas = ExtResource("6_wfjvq")
+atlas = ExtResource("7_n4lm5")
 region = Rect2(32, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evkx2"]
-atlas = ExtResource("6_wfjvq")
+atlas = ExtResource("7_n4lm5")
 region = Rect2(40, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aih5m"]
-atlas = ExtResource("6_wfjvq")
+atlas = ExtResource("7_n4lm5")
 region = Rect2(48, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnvpq"]
-atlas = ExtResource("6_wfjvq")
+atlas = ExtResource("7_n4lm5")
 region = Rect2(56, 0, 8, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_usssy"]
@@ -174,7 +174,7 @@ animations = [{
 }]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_kfiw7")
+script = ExtResource("1_4mk70")
 
 [node name="StartScreen" type="Node2D" parent="."]
 visible = false
@@ -188,7 +188,7 @@ color = Color(0.152941, 0.152941, 0.211765, 1)
 offset_top = 35.0
 offset_right = 150.0
 offset_bottom = 68.0
-theme_override_fonts/font = ExtResource("2_mx117")
+theme_override_fonts/font = ExtResource("2_phegq")
 theme_override_font_sizes/font_size = 32
 text = "ONE JAB"
 horizontal_alignment = 1
@@ -197,7 +197,7 @@ horizontal_alignment = 1
 offset_top = 108.0
 offset_right = 150.0
 offset_bottom = 125.0
-theme_override_fonts/font = ExtResource("2_mx117")
+theme_override_fonts/font = ExtResource("2_phegq")
 text = "[Z]/[X] TO START"
 horizontal_alignment = 1
 
@@ -219,31 +219,31 @@ color = Color(0.152941, 0.152941, 0.211765, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(14, 106)
-texture = ExtResource("3_n7khr")
+texture = ExtResource("3_jdgb7")
 
 [node name="Sprite2D2" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(34, 106)
-texture = ExtResource("3_n7khr")
+texture = ExtResource("3_jdgb7")
 
 [node name="Sprite2D3" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(54, 106)
-texture = ExtResource("3_n7khr")
+texture = ExtResource("3_jdgb7")
 
 [node name="Sprite2D4" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(74, 106)
-texture = ExtResource("3_n7khr")
+texture = ExtResource("3_jdgb7")
 
 [node name="Sprite2D5" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(94, 106)
-texture = ExtResource("3_n7khr")
+texture = ExtResource("3_jdgb7")
 
 [node name="Sprite2D6" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(114, 106)
-texture = ExtResource("3_n7khr")
+texture = ExtResource("3_jdgb7")
 
 [node name="Sprite2D7" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(134, 106)
-texture = ExtResource("3_n7khr")
+texture = ExtResource("3_jdgb7")
 
 [node name="PunchingBag" type="AnimatedSprite2D" parent="PlayScreen"]
 position = Vector2(19, 29)
@@ -255,7 +255,7 @@ offset_left = 4.0
 offset_top = 125.0
 offset_right = 52.0
 offset_bottom = 138.0
-theme_override_fonts/font = ExtResource("2_mx117")
+theme_override_fonts/font = ExtResource("2_phegq")
 text = "[Z] Move"
 
 [node name="LblTime" type="Label" parent="PlayScreen"]
@@ -263,7 +263,7 @@ offset_left = 49.0
 offset_top = 6.0
 offset_right = 97.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource("2_mx117")
+theme_override_fonts/font = ExtResource("2_phegq")
 text = "[Z] Move"
 
 [node name="Label9" type="Label" parent="PlayScreen"]
@@ -271,7 +271,7 @@ offset_left = 90.0
 offset_top = 125.0
 offset_right = 140.0
 offset_bottom = 142.0
-theme_override_fonts/font = ExtResource("2_mx117")
+theme_override_fonts/font = ExtResource("2_phegq")
 text = "[X] Jab"
 
 [node name="Player" type="AnimatedSprite2D" parent="PlayScreen"]
@@ -284,7 +284,7 @@ offset_left = 132.0
 offset_top = 1.0
 offset_right = 156.0
 offset_bottom = 18.0
-theme_override_fonts/font = ExtResource("2_mx117")
+theme_override_fonts/font = ExtResource("2_phegq")
 text = "50"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="PlayScreen"]
@@ -304,7 +304,7 @@ sprite_frames = SubResource("SpriteFrames_usssy")
 frame_progress = 0.0975982
 
 [node name="Stopwatch" type="Node" parent="PlayScreen"]
-script = ExtResource("8_maklf")
+script = ExtResource("8_wx1cf")
 
 [node name="GameOver" type="Node2D" parent="."]
 visible = false
@@ -320,7 +320,7 @@ offset_top = 103.0
 offset_right = 124.0
 offset_bottom = 120.0
 theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
-theme_override_fonts/font = ExtResource("2_mx117")
+theme_override_fonts/font = ExtResource("2_phegq")
 text = "[X]/[C] TO RETRY"
 
 [node name="LblMessage" type="Label" parent="GameOver"]
@@ -328,5 +328,5 @@ offset_top = 23.0
 offset_right = 156.0
 offset_bottom = 100.0
 theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
-theme_override_fonts/font = ExtResource("2_mx117")
+theme_override_fonts/font = ExtResource("2_phegq")
 text = "[X]/[C] TO RETRY"
