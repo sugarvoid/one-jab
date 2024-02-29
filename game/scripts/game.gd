@@ -61,6 +61,7 @@ func update_hud():
 
 func switch_screen(new_screen: int):
 	self.game_state = new_screen
+	var stating = get_starter_pos()
 	$PlayScreen/Stopwatch.stop()
 	match new_screen:
 		0:
@@ -69,11 +70,11 @@ func switch_screen(new_screen: int):
 			$StartScreen.show() 
 		1:
 			$PlayScreen/Stopwatch.start()
-			bags_next_pos = randi_range(2,6)
+			bags_next_pos = stating.pop_front()
 			lives = 3
 			hits_left = HITS_NEEDED
-			bag_slot = 0
-			player_slot = 1
+			bag_slot = stating[0]
+			player_slot = 3
 			misses = 0
 			update_hud()
 			$PlayScreen.show()
@@ -84,6 +85,11 @@ func switch_screen(new_screen: int):
 			$StartScreen.hide()
 			$GameOver.show()
 
+
+func get_starter_pos() -> Array[int]:
+	var arr: Array[int] = [randi_range(0,2), randi_range(4,6)]
+	arr.shuffle()
+	return arr
 
 func player_punch():
 	if player_slot == (bag_slot - 1) or player_slot == bag_slot + 1:
