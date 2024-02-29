@@ -6,7 +6,7 @@ extends Node2D
 @onready var lbl_hits_left: Label = get_node("PlayScreen/lblHits")
 @onready var lbl_time: Label = get_node("PlayScreen/LblTime")
 
-const HITS_NEEDED: int = 50
+const HITS_NEEDED: int = 20
 const slots: Array[int] = [
 	14,
 	34,
@@ -23,6 +23,7 @@ var bag_slot: int
 var player_slot: int
 var lives: int
 var bags_next_pos: int
+var misses: int
 
 
 func _ready():
@@ -73,6 +74,7 @@ func switch_screen(new_screen: int):
 			hits_left = HITS_NEEDED
 			bag_slot = 0
 			player_slot = 1
+			misses = 0
 			update_hud()
 			$PlayScreen.show()
 			$StartScreen.hide()
