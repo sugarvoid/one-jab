@@ -17,7 +17,7 @@ func start():
 	start_time = Time.get_ticks_msec()
 	
 
-func get_time():
+func get_time() -> String:
 	var elapsed: int = (Time.get_ticks_msec() - start_time)
 	
 	var minutes = elapsed / 60 / 1000
