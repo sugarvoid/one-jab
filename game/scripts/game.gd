@@ -5,6 +5,7 @@ extends Node2D
 @onready var marker: AnimatedSprite2D = get_node("PlayScreen/marker")
 @onready var lbl_hits_left: Label = get_node("PlayScreen/lblHits")
 @onready var lbl_time: Label = get_node("PlayScreen/LblTime")
+@onready var stopwatch: Node = get_node("PlayScreen/Stopwatch")
 
 const HITS_NEEDED: int = 20
 const slots: Array[int] = [
@@ -33,12 +34,12 @@ func _ready():
 
 
 func _process(_delta: float):
-	lbl_time.text = $PlayScreen/Stopwatch.get_time()
+	lbl_time.text = stopwatch.get_time()
 	update_player()
 	update_bag()
 
 
-func update_bag():
+func update_bag() -> void:
 	marker.position = Vector2(slots[bags_next_pos], 85)
 	if bag_slot < player_slot:
 		punching_bag.scale.x = 1
@@ -47,7 +48,7 @@ func update_bag():
 	punching_bag.position = Vector2(slots[bag_slot], 85)
 
 
-func update_player():
+func update_player() -> void:
 	if bag_slot < player_slot:
 		player.scale.x = 1
 	elif bag_slot > player_slot:
@@ -55,21 +56,21 @@ func update_player():
 	player.position = Vector2(slots[player_slot], 88)
 
 
-func update_hud():
+func update_hud() -> void:
 	lbl_hits_left.text = str(hits_left)
 	
 
-func switch_screen(new_screen: int):
+func switch_screen(new_screen: int) -> void:
 	self.game_state = new_screen
 	var stating = get_starter_pos()
-	$PlayScreen/Stopwatch.stop()
+	stopwatch.stop()
 	match new_screen:
 		0:
 			$PlayScreen.hide()
 			$GameOver.hide()
 			$StartScreen.show() 
 		1:
-			$PlayScreen/Stopwatch.start()
+			stopwatch.start()
 			bags_next_pos = stating.pop_front()
 			lives = 3
 			hits_left = HITS_NEEDED
@@ -91,7 +92,7 @@ func get_starter_pos() -> Array[int]:
 	arr.shuffle()
 	return arr
 
-func player_punch():
+func player_punch() -> void:
 	if player_slot == (bag_slot - 1) or player_slot == bag_slot + 1:
 		player.play("punch")
 		punching_bag.play("hit")
@@ -103,12 +104,13 @@ func player_punch():
 		set_gameoever_text("You should have moved...")
 		gameover()
 	if hits_left == 0:
-		set_gameoever_text(str("you win\n",$PlayScreen/Stopwatch.get_time()))
-		$PlayScreen/Stopwatch.stop()
+		set_gameoever_text(str("Time\n",stopwatch.get_time()))
+		# set_gameoever_text(str("Time\n",stopwatch.get_time(), "\n", "Misses: ", misses))
+		stopwatch.stop()
 		gameover()
 
 
-func move_bag():
+func move_bag() -> void:
 	bag_slot = bags_next_pos
 	var new_pos = randi_range(0,6)
 	while new_pos == bags_next_pos or new_pos == clamp(bags_next_pos - 1, 0, 6) or new_pos == clamp(bags_next_pos + 1, 0, 5):
@@ -117,7 +119,7 @@ func move_bag():
 	bags_next_pos = new_pos
 
 
-func _input(event):
+func _input(event) -> void:
 	match game_state:
 		0:
 			if event.is_action_pressed("move") or event.is_action_pressed("poke"):
@@ -138,16 +140,16 @@ func _input(event):
 
 
 func gameover() -> void:
-	$PlayScreen/Stopwatch.stop()
+	stopwatch.stop()
 	self.switch_screen(2)
 
-func set_gameoever_text(text: String):
-	$GameOver/LblMessage.text = text
+func set_gameoever_text(text: String) -> void:
+	$GameOver/LblTime.text = text
 
-func  move_player():
-	if $PlayScreen/Player.scale.x == 1 and player_slot != (bag_slot + 1):
+func  move_player() -> void:
+	if player.scale.x == 1 and player_slot != (bag_slot + 1):
 		player_slot -= 1
-	elif $PlayScreen/Player.scale.x == -1 and player_slot != (bag_slot - 1):
+	elif player.scale.x == -1 and player_slot != (bag_slot - 1):
 		player_slot += 1
 	else:
 		print("Miss movement. Game Over")

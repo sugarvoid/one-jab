@@ -290,8 +290,19 @@ texture = ExtResource("3_jdgb7")
 position = Vector2(134, 106)
 texture = ExtResource("3_jdgb7")
 
+[node name="lblHits" type="Label" parent="PlayScreen"]
+offset_left = 133.0
+offset_top = -1.0
+offset_right = 145.0
+offset_bottom = 16.0
+pivot_offset = Vector2(5.725, 8.385)
+theme_override_fonts/font = ExtResource("2_phegq")
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PunchingBag" type="AnimatedSprite2D" parent="PlayScreen"]
-position = Vector2(19, 29)
+position = Vector2(14, 84)
 sprite_frames = SubResource("SpriteFrames_pxre2")
 animation = &"hit"
 
@@ -323,14 +334,6 @@ text = "[X] Jab"
 position = Vector2(32, 88)
 sprite_frames = SubResource("SpriteFrames_88ot1")
 animation = &"punch"
-
-[node name="lblHits" type="Label" parent="PlayScreen"]
-offset_left = 132.0
-offset_top = 1.0
-offset_right = 156.0
-offset_bottom = 18.0
-theme_override_fonts/font = ExtResource("2_phegq")
-text = "50"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="PlayScreen"]
 offset_left = -90.0
@@ -368,10 +371,27 @@ theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
 theme_override_fonts/font = ExtResource("2_phegq")
 text = "[X]/[C] TO RETRY"
 
-[node name="LblMessage" type="Label" parent="GameOver"]
-offset_top = 23.0
-offset_right = 156.0
-offset_bottom = 100.0
+[node name="LblTime" type="Label" parent="GameOver"]
+offset_top = 30.0
+offset_right = 300.0
+offset_bottom = 166.0
+scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
 theme_override_fonts/font = ExtResource("2_phegq")
-text = "[X]/[C] TO RETRY"
+theme_override_font_sizes/font_size = 32
+text = "0:20:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LblMisses" type="Label" parent="GameOver"]
+offset_left = -161.0
+offset_top = 68.0
+offset_right = 139.0
+offset_bottom = 158.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
+theme_override_fonts/font = ExtResource("2_phegq")
+theme_override_font_sizes/font_size = 32
+text = "Misses: 00"
+horizontal_alignment = 1
+vertical_alignment = 1
