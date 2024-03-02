@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://dk7hulw0lliyx"]
+[gd_scene load_steps=33 format=3 uid="uid://dk7hulw0lliyx"]
 
 [ext_resource type="Script" path="res://game/scripts/game.gd" id="1_4mk70"]
+[ext_resource type="FontFile" uid="uid://tist4tiy7dny" path="res://game/asset/PICO-8.ttf" id="2_bfbr2"]
 [ext_resource type="FontFile" uid="uid://cnvt8vlhoyj1d" path="res://game/asset/monogram.ttf" id="2_phegq"]
 [ext_resource type="Texture2D" uid="uid://c5mg85mfs4atw" path="res://game/asset/floor_spot.png" id="3_jdgb7"]
 [ext_resource type="Texture2D" uid="uid://ctcqwbxebrbuk" path="res://game/asset/punchbag.png" id="4_b7bkk"]
@@ -177,37 +178,42 @@ animations = [{
 script = ExtResource("1_4mk70")
 
 [node name="StartScreen" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="StartScreen"]
 offset_right = 155.0
 offset_bottom = 156.0
-color = Color(0.152941, 0.152941, 0.211765, 1)
+color = Color(0.113725, 0.168627, 0.32549, 1)
 
 [node name="Label4" type="Label" parent="StartScreen"]
-offset_top = 35.0
-offset_right = 150.0
-offset_bottom = 68.0
-theme_override_fonts/font = ExtResource("2_phegq")
-theme_override_font_sizes/font_size = 32
-text = "ONE JAB"
+offset_left = 41.0
+offset_top = 39.0
+offset_right = 193.0
+offset_bottom = 72.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_bfbr2")
+theme_override_font_sizes/font_size = 24
+text = "one jab"
 horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="StartScreen"]
-offset_left = -5.0
-offset_top = 99.0
-offset_right = 145.0
-offset_bottom = 116.0
-theme_override_fonts/font = ExtResource("2_phegq")
-text = "[Z] START"
+offset_left = 36.0
+offset_top = 103.0
+offset_right = 186.0
+offset_bottom = 120.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_bfbr2")
+text = "[Z] start"
 horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="StartScreen"]
-offset_left = -8.0
-offset_top = 111.0
-offset_right = 142.0
-offset_bottom = 128.0
-theme_override_fonts/font = ExtResource("2_phegq")
-text = "[X] INFO"
+offset_left = 33.0
+offset_top = 114.0
+offset_right = 183.0
+offset_bottom = 131.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_bfbr2")
+text = "[x] info"
 horizontal_alignment = 1
 
 [node name="Info" type="Node2D" parent="StartScreen"]
@@ -216,7 +222,7 @@ visible = false
 [node name="ColorRect" type="ColorRect" parent="StartScreen/Info"]
 offset_right = 155.0
 offset_bottom = 156.0
-color = Color(0.152941, 0.152941, 0.211765, 1)
+color = Color(0.113725, 0.168627, 0.32549, 1)
 
 [node name="Label8" type="Label" parent="StartScreen/Info"]
 offset_left = 20.0
@@ -253,14 +259,14 @@ offset_left = -2.0
 offset_top = 99.0
 offset_right = 156.0
 offset_bottom = 152.0
-color = Color(0.337255, 0.239216, 0.184314, 1)
+color = Color(0.113725, 0.168627, 0.32549, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="PlayScreen"]
 offset_left = -6.0
 offset_top = -5.0
 offset_right = 166.0
 offset_bottom = 99.0
-color = Color(0.152941, 0.152941, 0.211765, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayScreen"]
 position = Vector2(14, 106)
@@ -295,8 +301,9 @@ offset_left = 133.0
 offset_top = -1.0
 offset_right = 145.0
 offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(5.725, 8.385)
-theme_override_fonts/font = ExtResource("2_phegq")
+theme_override_fonts/font = ExtResource("2_bfbr2")
 text = "50"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -311,15 +318,17 @@ offset_left = 4.0
 offset_top = 125.0
 offset_right = 52.0
 offset_bottom = 138.0
-theme_override_fonts/font = ExtResource("2_phegq")
-text = "[Z] Move"
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_bfbr2")
+text = "[Z] move"
 
 [node name="LblTime" type="Label" parent="PlayScreen"]
 offset_left = 49.0
 offset_top = 6.0
 offset_right = 97.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource("2_phegq")
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_bfbr2")
 text = "00:00:00"
 
 [node name="Label9" type="Label" parent="PlayScreen"]
@@ -327,8 +336,9 @@ offset_left = 90.0
 offset_top = 125.0
 offset_right = 140.0
 offset_bottom = 142.0
-theme_override_fonts/font = ExtResource("2_phegq")
-text = "[X] Jab"
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_bfbr2")
+text = "[x] jab"
 
 [node name="Player" type="AnimatedSprite2D" parent="PlayScreen"]
 position = Vector2(32, 88)
@@ -355,29 +365,30 @@ frame_progress = 0.0975982
 script = ExtResource("8_wx1cf")
 
 [node name="GameOver" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
 offset_right = 156.0
 offset_bottom = 153.0
-color = Color(0.152941, 0.152941, 0.211765, 1)
+color = Color(0.113725, 0.168627, 0.32549, 1)
 
 [node name="Label8" type="Label" parent="GameOver"]
-offset_left = 28.0
-offset_top = 103.0
-offset_right = 124.0
-offset_bottom = 120.0
+offset_left = 36.0
+offset_top = 107.0
+offset_right = 235.0
+offset_bottom = 124.0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
-theme_override_fonts/font = ExtResource("2_phegq")
-text = "[X]/[C] TO RETRY"
+theme_override_fonts/font = ExtResource("2_bfbr2")
+text = "[x]/[c] to retry"
 
 [node name="LblTime" type="Label" parent="GameOver"]
-offset_top = 30.0
-offset_right = 300.0
-offset_bottom = 166.0
-scale = Vector2(0.5, 0.5)
+offset_left = 16.0
+offset_top = 37.0
+offset_right = 316.0
+offset_bottom = 173.0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/font_color = Color(1, 1, 0.921569, 1)
-theme_override_fonts/font = ExtResource("2_phegq")
+theme_override_fonts/font = ExtResource("2_bfbr2")
 theme_override_font_sizes/font_size = 32
 text = "0:20:00"
 horizontal_alignment = 1

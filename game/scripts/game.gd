@@ -101,7 +101,7 @@ func player_punch() -> void:
 		move_bag()
 	else:
 		print("Miss punch. Game Over")
-		set_gameoever_text("You should have moved...")
+		set_gameoever_text("wrong move")
 		gameover()
 	if hits_left == 0:
 		set_gameoever_text(str("Time\n",stopwatch.get_time()))
@@ -153,7 +153,7 @@ func  move_player() -> void:
 		player_slot += 1
 	else:
 		print("Miss movement. Game Over")
-		set_gameoever_text("You should have punched...")
+		set_gameoever_text("wrong move")
 		gameover()
 	
 	
