@@ -247,7 +247,6 @@ text = "[X] to go back
 horizontal_alignment = 1
 
 [node name="PlayScreen" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PlayScreen"]
 offset_left = -2.0
@@ -310,7 +309,7 @@ offset_top = 6.0
 offset_right = 97.0
 offset_bottom = 19.0
 theme_override_fonts/font = ExtResource("2_phegq")
-text = "[Z] Move"
+text = "00:00:00"
 
 [node name="Label9" type="Label" parent="PlayScreen"]
 offset_left = 90.0
