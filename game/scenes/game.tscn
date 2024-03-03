@@ -297,11 +297,11 @@ position = Vector2(134, 106)
 texture = ExtResource("3_jdgb7")
 
 [node name="lblHits" type="Label" parent="PlayScreen"]
-offset_left = 133.0
-offset_top = -1.0
-offset_right = 145.0
-offset_bottom = 16.0
-scale = Vector2(0.5, 0.5)
+offset_left = 131.0
+offset_top = -3.0
+offset_right = 168.0
+offset_bottom = 22.0
+scale = Vector2(0.4, 0.4)
 pivot_offset = Vector2(5.725, 8.385)
 theme_override_fonts/font = ExtResource("2_bfbr2")
 text = "50"
@@ -323,13 +323,34 @@ theme_override_fonts/font = ExtResource("2_bfbr2")
 text = "[Z] move"
 
 [node name="LblTime" type="Label" parent="PlayScreen"]
-offset_left = 49.0
-offset_top = 6.0
-offset_right = 97.0
-offset_bottom = 19.0
+offset_left = 1.0
+offset_top = 21.0
+offset_right = 299.0
+offset_bottom = 37.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("2_bfbr2")
 text = "00:00:00"
+horizontal_alignment = 1
+
+[node name="LblTimeBest" type="Label" parent="PlayScreen"]
+offset_left = 1.0
+offset_top = 7.0
+offset_right = 104.0
+offset_bottom = 23.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("2_bfbr2")
+text = "00:00:00"
+horizontal_alignment = 1
+
+[node name="LblTimeBestStatic" type="Label" parent="PlayScreen"]
+offset_top = 1.0
+offset_right = 107.0
+offset_bottom = 17.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("2_bfbr2")
+text = "best"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label9" type="Label" parent="PlayScreen"]
 offset_left = 90.0
@@ -365,6 +386,7 @@ frame_progress = 0.0975982
 script = ExtResource("8_wx1cf")
 
 [node name="GameOver" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
 offset_right = 156.0

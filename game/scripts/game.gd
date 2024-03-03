@@ -7,7 +7,9 @@ extends Node2D
 @onready var lbl_time: Label = get_node("PlayScreen/LblTime")
 @onready var stopwatch: Node = get_node("PlayScreen/Stopwatch")
 
-const HITS_NEEDED: int = 20
+
+const GAME_HISTORY_PATH = "res://game/data/game_history.json"
+const HITS_NEEDED: int = 10
 const slots: Array[int] = [
 	14,
 	34,
@@ -25,9 +27,18 @@ var player_slot: int
 var lives: int
 var bags_next_pos: int
 var misses: int
+var _game_history: Array
+
+var game_data: Dictionary = {
+	"date": null,
+	"name": "",
+	"time": "",
+	"time_int": 0
+}
 
 
 func _ready():
+	load_history()
 	switch_screen(0)
 	update_hud()
 	marker.play("default")
@@ -70,6 +81,8 @@ func switch_screen(new_screen: int) -> void:
 			$GameOver.hide()
 			$StartScreen.show() 
 		1:
+			_game_history = load_history()
+			$PlayScreen/LblTimeBest.text = get_best_time()
 			stopwatch.start()
 			bags_next_pos = stating.pop_front()
 			lives = 3
@@ -104,7 +117,9 @@ func player_punch() -> void:
 		set_gameoever_text("wrong move")
 		gameover()
 	if hits_left == 0:
-		set_gameoever_text(str("Time\n",stopwatch.get_time()))
+		var completion_time = stopwatch.get_time()
+		set_gameoever_text(str("Time\n",completion_time))
+		store_game_data(completion_time)
 		# set_gameoever_text(str("Time\n",stopwatch.get_time(), "\n", "Misses: ", misses))
 		stopwatch.stop()
 		gameover()
@@ -157,3 +172,41 @@ func  move_player() -> void:
 		gameover()
 	
 	
+	
+	
+func store_game_data(round_time: String) -> void:
+	
+	var time: Dictionary = Time.get_datetime_dict_from_system()
+	var display_string : String = "%d/%02d/%02d %02d:%02d" % [time.year, time.month, time.day, time.hour, time.minute]
+	
+	game_data.date = display_string
+	game_data.time = round_time
+	game_data.name = "_name_"
+	game_data.time_int = stopwatch.get_time_int()
+	
+	_game_history.append(game_data)
+	
+	var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.READ_WRITE)
+	var json_string = JSON.stringify(_game_history, "\t")
+	
+	file.store_string(json_string)
+	file.close()
+
+func sort_descending(a, b):
+	if a.time_int < b.time_int:
+		return true
+	return false
+
+func load_history() -> Array:
+	var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.READ_WRITE)
+	var test: Array = []
+	var content = file.get_as_text()
+	file.close()
+	if content != "":
+		test = JSON.parse_string(content)
+	return test
+
+func get_best_time() -> String:
+	var data: Array = _game_history
+	data.sort_custom(sort_descending)
+	return data[0].time

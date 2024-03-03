@@ -2,6 +2,7 @@ extends Node
 
 var running: bool = false
 var start_time: int = 0
+var elapsed: int
 
 
 func _ready():
@@ -15,11 +16,14 @@ func _process(_delta: float) -> void:
 
 func start() -> void:
 	running = true
+	elapsed = 0
 	start_time = Time.get_ticks_msec()
 
+func get_time_int() -> int:
+	return elapsed
 
 func get_time() -> String:
-	var elapsed: int = (Time.get_ticks_msec() - start_time)
+	elapsed = (Time.get_ticks_msec() - start_time)
 	
 	var minutes = elapsed / 60 / 1000
 	var seconds = elapsed / 1000 % 60
