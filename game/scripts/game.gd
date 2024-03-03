@@ -8,7 +8,7 @@ extends Node2D
 @onready var stopwatch: Node = get_node("PlayScreen/Stopwatch")
 
 
-const GAME_HISTORY_PATH = "res://game/data/game_history.json"
+const GAME_HISTORY_PATH = "user://game_history.json"
 const HITS_NEEDED: int = 10
 const slots: Array[int] = [
 	14,
@@ -42,6 +42,7 @@ func _ready():
 	switch_screen(0)
 	update_hud()
 	marker.play("default")
+	make_save_file()
 
 
 func _process(_delta: float):
@@ -197,10 +198,15 @@ func sort_descending(a, b):
 		return true
 	return false
 
+func make_save_file():
+	var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.WRITE)
+	file.close()
+
 func load_history() -> Array:
-	var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.READ_WRITE)
+	var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.READ)
 	var test: Array = []
 	var content = file.get_as_text()
+	print(str("contec:",content))
 	file.close()
 	if content != "":
 		test = JSON.parse_string(content)
@@ -208,5 +214,8 @@ func load_history() -> Array:
 
 func get_best_time() -> String:
 	var data: Array = _game_history
-	data.sort_custom(sort_descending)
-	return data[0].time
+	if data != []:
+		data.sort_custom(sort_descending)
+		return data[0].time
+	else:
+		return "00:00:00"
