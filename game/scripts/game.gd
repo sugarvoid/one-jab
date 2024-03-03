@@ -9,7 +9,7 @@ extends Node2D
 
 
 const GAME_HISTORY_PATH = "user://game_history.json"
-const HITS_NEEDED: int = 10
+const HITS_NEEDED: int = 20
 const slots: Array[int] = [
 	14,
 	34,
@@ -38,7 +38,6 @@ var game_data: Dictionary = {
 
 
 func _ready():
-	load_history()
 	switch_screen(0)
 	update_hud()
 	marker.play("default")
@@ -199,8 +198,11 @@ func sort_descending(a, b):
 	return false
 
 func make_save_file():
-	var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.READ_WRITE)
-	file.close()
+	if FileAccess.file_exists(GAME_HISTORY_PATH):
+		print('file is here')
+	else:
+		var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.WRITE)
+		file.close()
 
 func load_history() -> Array:
 	var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.READ)
