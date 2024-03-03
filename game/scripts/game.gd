@@ -199,7 +199,7 @@ func sort_descending(a, b):
 	return false
 
 func make_save_file():
-	var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.WRITE)
+	var file = FileAccess.open(GAME_HISTORY_PATH, FileAccess.READ_WRITE)
 	file.close()
 
 func load_history() -> Array:
