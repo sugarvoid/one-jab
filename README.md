@@ -1,4 +1,4 @@
-# one-jab
+# One Jab
 
 Demake of One Punch. Using the Godot Engine. 
 
